@@ -66,10 +66,17 @@ int main()
 			}
 
 		}
+								 
+		if (points.size() > 0) {
+			srand(time(0));
 		// Handle the player quitting
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
 		{
 			window.close();
+			int randomCorner = rand() % 3;
+			Vector2f mid = (vertices.at(randomCorner).x + (float)points.at(points.size() - 1).x/2), ((vertices.at(randomCorner).y + 
+				(float)points.at(points.size() - 1).y)/2);
+			points.push_back(mid);
 		}
 
 		/*****************************************
