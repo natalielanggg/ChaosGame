@@ -47,6 +47,14 @@ int main()
 					std::cout << "the right button was pressed" << std::endl;
 					std::cout << "mouse x: " << event.mouseButton.x << std::endl;
 					std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+					if(vertices.size() <= 3)
+					{
+						vertices.push_back(Vector2f{(float)event.mouseButton.x, (float)event.mouseButton.y}));
+					}
+					else
+					{
+						points.push_back(Vector2f{(float)event.mouseButton.x, float(event.mouseButton.y}));
+					}
 
 					// get the current mouse position in the window
 					sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
@@ -70,7 +78,7 @@ int main()
 		//generate interior points
 
 		ostringstream oss;
-		oss << "Click stuff and " << endl << "I will write stuff";
+		oss << "Click three times to draw a triangle " << endl << "Click again to start the program.";
 		instructions.setString(oss.str());
 
 		FloatRect textRect = instructions.getLocalBounds();
